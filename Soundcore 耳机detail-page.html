@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoundNote Note S — 一键静界，听见自己</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --ink: #1a1a2e;
+    --ink-soft: #2d2d44;
+    --paper: #f7f7f5;
+    --paper-warm: #f0ede8;
+    --accent: #e85d3c;
+    --accent-soft: #ff7849;
+    --gold: #c4a572;
+    --muted: #8a8a9a;
+    --line: rgba(26,26,46,0.08);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans SC', sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 48px;
+    background: rgba(247,247,245,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+    transition: all .4s ease;
+  }
+  nav.scrolled { padding: 12px 48px; box-shadow: 0 2px 30px rgba(0,0,0,0.04); }
+  .logo { font-family:'Noto Serif SC',serif; font-size: 22px; font-weight:700; letter-spacing: 2px; color: var(--ink); }
+  .logo span { color: var(--accent); }
+  .nav-links { display:flex; gap:32px; }
+  .nav-links a { text-decoration:none; color:var(--ink-soft); font-size:13px; font-weight:400; letter-spacing:1px; transition: color .3s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta { padding: 8px 24px; border: 1.5px solid var(--ink); border-radius: 40px; font-size:13px; font-weight:500; cursor:pointer; transition: all .3s; background:none; color:var(--ink); }
+  .nav-cta:hover { background:var(--ink); color:var(--paper); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    position:relative;
+    background: linear-gradient(180deg, #f7f7f5 0%, #eaeae6 100%);
+    overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    width: 600px; height:600px; border-radius:50%;
+    background: radial-gradient(circle, rgba(232,93,60,0.06) 0%, transparent 70%);
+    animation: pulse 6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { transform: translate(-50%,-50%) scale(1); opacity:0.6; }
+    50% { transform: translate(-50%,-50%) scale(1.15); opacity:1; }
+  }
+  .hero-tag { font-size:12px; letter-spacing:6px; color:var(--muted); text-transform:uppercase; margin-bottom: 28px; opacity:0; animation: fadeUp 1s ease .3s forwards; }
+  .hero h1 { font-family:'Noto Serif SC',serif; font-size: 64px; font-weight:700; line-height:1.15; text-align:center; margin-bottom: 20px; opacity:0; animation: fadeUp 1s ease .5s forwards; }
+  .hero h1 .accent { color: var(--accent); font-style:italic; }
+  .hero-slogan { font-family:'Noto Serif SC',serif; font-size: 20px; font-weight:300; letter-spacing:8px; color: var(--ink-soft); margin-bottom: 48px; opacity:0; animation: fadeUp 1s ease .7s forwards; }
+  .hero-slogan span { color: var(--accent); font-weight:500; }
+  .hero-cta { display:flex; gap:20px; opacity:0; animation: fadeUp 1s ease .9s forwards; }
+  .hero-cta button { padding: 14px 36px; border-radius: 40px; font-size:14px; font-weight:500; letter-spacing:1px; cursor:pointer; transition: all .3s; border:none; }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow:0 8px 25px rgba(232,93,60,0.3); }
+  .btn-ghost { background:none; border:1.5px solid var(--ink); color:var(--ink); }
+  .btn-ghost:hover { background:var(--ink); color:var(--paper); }
+  .scroll-hint { position:absolute; bottom:40px; left:50%; transform: translateX(-50%); font-size:11px; letter-spacing:3px; color: var(--muted); writing-mode: vertical-lr; animation: scrollHint 2s ease-in-out infinite; }
+  @keyframes scrollHint { 0%,100% { opacity:0.3; transform: translateX(-50%) translateY(0); } 50% { opacity:1; transform: translateX(-50%) translateY(8px); } }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+
+  /* ===== INTRO ===== */
+  .intro { padding: 120px 48px; text-align:center; max-width: 800px; margin: 0 auto; }
+  .intro-label { font-size:12px; letter-spacing:4px; color: var(--accent); margin-bottom: 24px; }
+  .intro-text { font-family:'Noto Serif SC',serif; font-size: 28px; font-weight:400; line-height:1.8; color: var(--ink); }
+  .intro-text em { font-style:italic; color: var(--accent); font-weight:500; }
+
+  /* ===== SCENE ===== */
+  .scene { min-height: 100vh; display:flex; position:relative; overflow:hidden; }
+  .scene-panel { flex: 1; display:flex; flex-direction:column; justify-content:center; padding: 80px 64px; position:relative; }
+
+  .panel-noise { background: #1a1a2e; color: #e0e0e8; }
+  .panel-noise .scene-no { font-family:'Noto Serif SC',serif; font-size:120px; font-weight:700; color: rgba(255,255,255,0.04); position:absolute; top:40px; left:48px; line-height:1; }
+  .panel-noise .scene-label { font-size:11px; letter-spacing:4px; color: rgba(255,255,255,0.3); margin-bottom: 24px; text-transform:uppercase; }
+  .panel-noise .scene-title { font-family:'Noto Serif SC',serif; font-size: 36px; font-weight:600; margin-bottom: 28px; color: #fff; }
+  .panel-noise .scene-pain { font-size: 17px; line-height: 2; color: rgba(255,255,255,0.6); font-weight:300; max-width: 440px; }
+
+  .noise-bars { position:absolute; bottom:0; left:0; right:0; height: 120px; display:flex; align-items:flex-end; gap: 3px; padding: 0 20px; opacity: 0.5; }
+  .noise-bars span { flex:1; background: rgba(255,255,255,0.15); border-radius: 2px 2px 0 0; animation: noiseBar 0.8s ease-in-out infinite alternate; }
+  @keyframes noiseBar { 0% { height: 20%; } 100% { height: 90%; } }
+
+  .noise-words { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+  .noise-words span { position:absolute; font-size:14px; color: rgba(255,255,255,0.08); white-space:nowrap; animation: floatWord 8s linear infinite; }
+  @keyframes floatWord { 0% { transform: translateY(0) rotate(0deg); opacity:0; } 10% { opacity:1; } 90% { opacity:1; } 100% { transform: translateY(-300px) rotate(15deg); opacity:0; } }
+
+  .panel-calm { background: #e8f0eb; color: var(--ink); }
+  .panel-calm .scene-no { font-family:'Noto Serif SC',serif; font-size:120px; font-weight:700; color: rgba(26,26,46,0.04); position:absolute; top:40px; right:48px; line-height:1; }
+  .panel-calm .scene-label { font-size:11px; letter-spacing:4px; color: var(--accent); margin-bottom: 24px; text-transform:uppercase; }
+  .panel-calm .scene-title { font-family:'Noto Serif SC',serif; font-size: 36px; font-weight:600; margin-bottom: 28px; color: var(--ink); }
+  .panel-calm .scene-calm-text { font-size: 17px; line-height: 2; color: var(--ink-soft); font-weight:400; max-width: 440px; }
+  .panel-calm .scene-calm-text strong { color: var(--accent); font-weight:500; }
+
+  .tap-indicator { display:inline-flex; align-items:center; gap:10px; margin-top: 36px; padding: 10px 24px; background: rgba(26,26,46,0.06); border-radius: 40px; font-size:13px; color: var(--ink-soft); letter-spacing:1px; }
+  .tap-dot { width:10px; height:10px; border-radius:50%; background: var(--accent); animation: tapPulse 1.5s ease-in-out infinite; }
+  @keyframes tapPulse { 0%,100% { transform:scale(1); opacity:1; box-shadow:0 0 0 0 rgba(232,93,60,0.4); } 50% { transform:scale(1.3); opacity:0.7; box-shadow:0 0 0 12px rgba(232,93,60,0); } }
+
+  .calm-waves { position:absolute; bottom:0; left:0; right:0; height: 100px; display:flex; align-items:flex-end; gap: 4px; padding: 0 20px; opacity: 0.3; }
+  .calm-waves span { flex:1; background: var(--accent); border-radius: 2px 2px 0 0; animation: calmWave 4s ease-in-out infinite alternate; }
+  @keyframes calmWave { 0% { height: 15%; } 100% { height: 35%; } }
+
+  .slogan-bar { text-align:center; padding: 48px 20px; background: var(--ink); color: var(--paper); }
+  .slogan-bar p { font-family:'Noto Serif SC',serif; font-size: 22px; letter-spacing: 8px; font-weight:400; }
+  .slogan-bar p span { color: var(--accent-soft); }
+
+  .scene-1 .panel-noise { background: #1a1a2e; }
+  .scene-1 .panel-calm  { background: #e8f0eb; }
+  .scene-2 .panel-noise { background: #1c2a1e; }
+  .scene-2 .panel-calm  { background: #f0ece4; }
+  .scene-3 .panel-noise { background: #2a1e1a; }
+  .scene-3 .panel-calm  { background: #f5ebe0; }
+  .scene-4 .panel-noise { background: #1e1a2a; }
+  .scene-4 .panel-calm  { background: #ece8f0; }
+  .scene-5 .panel-noise { background: #1a2a2a; }
+  .scene-5 .panel-calm  { background: #e0f0f0; }
+
+  /* ===== PHILOSOPHY ===== */
+  .philosophy { padding: 140px 48px; text-align:center; background: var(--paper-warm); }
+  .philosophy-label { font-size:12px; letter-spacing:4px; color: var(--accent); margin-bottom: 32px; }
+  .philosophy h2 { font-family:'Noto Serif SC',serif; font-size: 42px; font-weight:700; line-height:1.4; margin-bottom: 40px; max-width: 800px; margin-left:auto; margin-right:auto; }
+  .philosophy h2 em { font-style:italic; color: var(--accent); }
+  .philosophy-sub { font-size: 16px; line-height:2; color: var(--ink-soft); max-width: 600px; margin: 0 auto; font-weight:300; }
+
+  /* ===== FOOTER ===== */
+  footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 60px 48px 40px; text-align:center; }
+  footer .footer-logo { font-family:'Noto Serif SC',serif; font-size: 24px; font-weight:700; color: #fff; margin-bottom: 16px; letter-spacing:2px; }
+  footer .footer-logo span { color: var(--accent-soft); }
+  footer .footer-slogan { font-family:'Noto Serif SC',serif; font-size: 18px; letter-spacing:6px; color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+  footer .footer-slogan span { color: var(--accent-soft); }
+  footer .footer-copy { font-size:12px; color: rgba(255,255,255,0.25); letter-spacing:1px; }
+
+  @media (max-width: 900px) {
+    .scene { flex-direction: column; }
+    .panel-noise, .panel-calm { padding: 60px 32px; min-height: 50vh; }
+    .hero h1 { font-size: 40px; }
+    .hero-slogan { font-size: 16px; letter-spacing:4px; }
+    .nav-links { display:none; }
+    nav { padding: 14px 24px; }
+    .philosophy h2 { font-size: 28px; }
+    .intro-text { font-size: 20px; }
+    .panel-noise .scene-title, .panel-calm .scene-title { font-size: 26px; }
+    .panel-noise .scene-no, .panel-calm .scene-no { font-size: 80px; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">Sound<span>Note</span></div>
+  <div class="nav-links">
+    <a href="#scene-1">地铁</a>
+    <a href="#scene-2">大风</a>
+    <a href="#scene-3">咖啡馆</a>
+    <a href="#scene-4">啼哭</a>
+    <a href="#scene-5">骑行</a>
+  </div>
+  <button class="nav-cta">立即体验</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">SOUNDNOTE NOTE S</div>
+  <h1>不必让世界安静<br>只需让<span class="accent">重要的人</span>，听清你</h1>
+  <div class="hero-slogan">一键静界 · <span>听见自己</span></div>
+  <div class="hero-cta">
+    <button class="btn-primary">探索场景</button>
+    <button class="btn-ghost">预约试听</button>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<section class="intro reveal">
+  <div class="intro-label">场景情绪 · 五幕叙事</div>
+  <p class="intro-text">
+    我们不卖参数，我们卖的是——<br>
+    在地铁里不再被追问「你说什么」的<em>从容</em>，<br>
+    在大风天不必躲进街角打电话的<em>体面</em>，<br>
+    在嘈杂咖啡馆依然被完整倾听的<em>存在感</em>。
+  </p>
+</section>
+
+<!-- SCENE 1 -->
+<section class="scene scene-1" id="scene-1">
+  <div class="scene-panel panel-noise">
+    <div class="scene-no">01</div>
+    <div class="noise-words">
+      <span style="left:10%;top:80%;animation-delay:0s;">报站声</span>
+      <span style="left:30%;top:70%;animation-delay:2s;">车轮摩擦</span>
+      <span style="left:50%;top:85%;animation-delay:4s;">刷短视频</span>
+      <span style="left:70%;top:75%;animation-delay:1s;">打电话</span>
+      <span style="left:85%;top:90%;animation-delay:3s;">人群喧嚣</span>
+    </div>
+    <div class="scene-label">SCENE 01 / 地铁</div>
+    <div class="scene-title">早高峰的地铁<br>是一口沸腾的锅</div>
+    <div class="scene-pain">报站声、车轮声、陌生人打电话声全搅在一起。你的声音被碾成碎片，对方反复问：「你说什么？」你想认真表达，却只能在噪音里拔河。</div>
+    <div class="noise-bars">
+      <span style="animation-delay:0s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.05s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.15s"></span><span style="animation-delay:.25s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.35s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.05s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.15s"></span><span style="animation-delay:.25s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.35s"></span><span style="animation-delay:.05s"></span><span style="animation-delay:.3s"></span>
+    </div>
+  </div>
+  <div class="scene-panel panel-calm">
+    <div class="scene-no">01</div>
+    <div class="scene-label">轻点耳机 / 轻触切换</div>
+    <div class="scene-title">轰鸣被揉成<br>窗外模糊的底噪</div>
+    <div class="scene-calm-text">你的声音像<strong>深夜客厅里的独白</strong>，一字不落地抵达对方耳边。报站声退到很远的地方，变成了不影响任何人的背景白噪音。</div>
+    <div class="tap-indicator"><div class="tap-dot"></div>轻点耳机 · 瞬间切换</div>
+    <div class="calm-waves">
+      <span style="animation-delay:0s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.9s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.9s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.3s"></span>
+    </div>
+  </div>
+</section>
+<div class="slogan-bar reveal"><p>一键静界 · <span>听见自己</span></p></div>
+
+<!-- SCENE 2 -->
+<section class="scene scene-2" id="scene-2">
+  <div class="scene-panel panel-noise">
+    <div class="scene-no">02</div>
+    <div class="noise-words">
+      <span style="left:15%;top:75%;animation-delay:0s;">呼呼风声</span>
+      <span style="left:40%;top:85%;animation-delay:1.5s;">话筒撕裂</span>
+      <span style="left:65%;top:70%;animation-delay:3s;">话被吹散</span>
+      <span style="left:80%;top:88%;animation-delay:4.5s;">听不清</span>
+    </div>
+    <div class="scene-label">SCENE 02 / 大风天</div>
+    <div class="scene-title">风把话筒<br>撕成一片呼呼声</div>
+    <div class="scene-pain">你躲在街角，像对着一台坏掉的收音机说话。重要的话被吹散在半空，对方只听到呼呼的风。你不得不重复三遍，声音越来越大，越来越不像自己。</div>
+    <div class="noise-bars">
+      <span style="animation-delay:0s;height:80%"></span><span style="animation-delay:.15s;height:60%"></span><span style="animation-delay:.3s;height:95%"></span><span style="animation-delay:.05s;height:70%"></span><span style="animation-delay:.4s;height:50%"></span><span style="animation-delay:.2s;height:85%"></span><span style="animation-delay:.35s;height:65%"></span><span style="animation-delay:.1s;height:90%"></span><span style="animation-delay:.45s;height:55%"></span><span style="animation-delay:.25s;height:75%"></span><span style="animation-delay:.05s;height:88%"></span><span style="animation-delay:.3s;height:62%"></span><span style="animation-delay:.15s;height:78%"></span><span style="animation-delay:.4s;height:50%"></span><span style="animation-delay:.2s;height:92%"></span><span style="animation-delay:.1s;height:68%"></span><span style="animation-delay:.35s;height:82%"></span><span style="animation-delay:.05s;height:58%"></span><span style="animation-delay:.25s;height:88%"></span><span style="animation-delay:.3s;height:72%"></span>
+    </div>
+  </div>
+  <div class="scene-panel panel-calm">
+    <div class="scene-no">02</div>
+    <div class="scene-label">轻点耳机 / 风墙启动</div>
+    <div class="scene-title">风声被推远成<br>一道透明的墙</div>
+    <div class="scene-calm-text">只剩你的<strong>语气、停顿、呼吸</strong>，稳稳落在对方心上。你站在风里说话，声音却不带一丝颤抖——仿佛风从未来过。</div>
+    <div class="tap-indicator"><div class="tap-dot"></div>轻点耳机 · 瞬间切换</div>
+    <div class="calm-waves">
+      <span style="animation-delay:0s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.9s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.9s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.4s"></span>
+    </div>
+  </div>
+</section>
+<div class="slogan-bar reveal"><p>一键静界 · <span>听见自己</span></p></div>
+
+<!-- SCENE 3 -->
+<section class="scene scene-3" id="scene-3">
+  <div class="scene-panel panel-noise">
+    <div class="scene-no">03</div>
+    <div class="noise-words">
+      <span style="left:10%;top:82%;animation-delay:0s;">隔壁开会</span>
+      <span style="left:35%;top:72%;animation-delay:2s;">咖啡机咆哮</span>
+      <span style="left:60%;top:86%;animation-delay:4s;">键盘噼啪</span>
+      <span style="left:82%;top:76%;animation-delay:1s;">拿铁拉花</span>
+    </div>
+    <div class="scene-label">SCENE 03 / 咖啡馆</div>
+    <div class="scene-title">每个词<br>都要用力喊</div>
+    <div class="scene-pain">隔壁桌在开会，咖啡机咆哮，键盘噼啪作响。你的通话变成一场和噪音的拔河，声音越提越高，直到你发现自己不像在聊天，像在吵架。</div>
+    <div class="noise-bars">
+      <span style="animation-delay:0s"></span><span style="animation-delay:.12s"></span><span style="animation-delay:.24s"></span><span style="animation-delay:.06s"></span><span style="animation-delay:.18s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.15s"></span><span style="animation-delay:.09s"></span><span style="animation-delay:.21s"></span><span style="animation-delay:.03s"></span><span style="animation-delay:.27s"></span><span style="animation-delay:.12s"></span><span style="animation-delay:.18s"></span><span style="animation-delay:.33s"></span><span style="animation-delay:.06s"></span><span style="animation-delay:.24s"></span><span style="animation-delay:.15s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.09s"></span><span style="animation-delay:.21s"></span>
+    </div>
+  </div>
+  <div class="scene-panel panel-calm">
+    <div class="scene-no">03</div>
+    <div class="scene-label">轻点耳机 / 噪点擦除</div>
+    <div class="scene-title">嘈杂被擦去<br>一层噪点</div>
+    <div class="scene-calm-text">你的声音从背景里浮出来，像有人轻轻<strong>关上了世界的音量</strong>。咖啡馆还在，但此刻这里只有你和对方的对话，像坐在角落里最安静的座位。</div>
+    <div class="tap-indicator"><div class="tap-dot"></div>轻点耳机 · 瞬间切换</div>
+    <div class="calm-waves">
+      <span style="animation-delay:0s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.7s"></span>
+    </div>
+  </div>
+</section>
+<div class="slogan-bar reveal"><p>一键静界 · <span>听见自己</span></p></div>
+
+<!-- SCENE 4 -->
+<section class="scene scene-4" id="scene-4">
+  <div class="scene-panel panel-noise">
+    <div class="scene-no">04</div>
+    <div class="noise-words">
+      <span style="left:12%;top:78%;animation-delay:0s;">哇——</span>
+      <span style="left:38%;top:84%;animation-delay:1.8s;">哭声刺穿</span>
+      <span style="left:62%;top:72%;animation-delay:3.6s;">会议还在继续</span>
+      <span style="left:85%;top:88%;animation-delay:5.4s;">手足无措</span>
+    </div>
+    <div class="scene-label">SCENE 04 / 婴儿啼哭</div>
+    <div class="scene-title">宝宝突然哭了<br>电话那头还在开会</div>
+    <div class="scene-pain">你手足无措，怕失礼，更怕自己的声音被哭声吞掉。你想说的重要的事，和哭声搅在一起，变成了一团含混不清的焦虑。你甚至想挂掉电话。</div>
+    <div class="noise-bars">
+      <span style="animation-delay:0s;height:90%"></span><span style="animation-delay:.2s;height:40%"></span><span style="animation-delay:.1s;height:85%"></span><span style="animation-delay:.3s;height:50%"></span><span style="animation-delay:.05s;height:95%"></span><span style="animation-delay:.25s;height:45%"></span><span style="animation-delay:.15s;height:88%"></span><span style="animation-delay:.35s;height:55%"></span><span style="animation-delay:.1s;height:82%"></span><span style="animation-delay:.3s;height:48%"></span><span style="animation-delay:.2s;height:92%"></span><span style="animation-delay:.4s;height:52%"></span><span style="animation-delay:.05s;height:87%"></span><span style="animation-delay:.25s;height:43%"></span><span style="animation-delay:.15s;height:90%"></span><span style="animation-delay:.35s;height:50%"></span><span style="animation-delay:.1s;height:85%"></span><span style="animation-delay:.3s;height:47%"></span><span style="animation-delay:.2s;height:93%"></span><span style="animation-delay:.4s;height:55%"></span>
+    </div>
+  </div>
+  <div class="scene-panel panel-calm">
+    <div class="scene-no">04</div>
+    <div class="scene-label">轻点耳机 / 啼哭缝合</div>
+    <div class="scene-title">啼哭被缝合成<br>遥远的气音</div>
+    <div class="scene-calm-text">你的表达依然<strong>完整、清晰、有尊严</strong>，仿佛正坐在一间安静的房间里。对方不会察觉任何慌乱。你不必挂断电话，也不必放弃任何一个身份。</div>
+    <div class="tap-indicator"><div class="tap-dot"></div>轻点耳机 · 瞬间切换</div>
+    <div class="calm-waves">
+      <span style="animation-delay:0s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.9s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.9s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.3s"></span>
+    </div>
+  </div>
+</section>
+<div class="slogan-bar reveal"><p>一键静界 · <span>听见自己</span></p></div>
+
+<!-- SCENE 5 -->
+<section class="scene scene-5" id="scene-5">
+  <div class="scene-panel panel-noise">
+    <div class="scene-no">05</div>
+    <div class="noise-words">
+      <span style="left:10%;top:80%;animation-delay:0s;">风噪呼啸</span>
+      <span style="left:30%;top:72%;animation-delay:2s;">车流穿行</span>
+      <span style="left:55%;top:86%;animation-delay:4s;">轮胎摩擦</span>
+      <span style="left:78%;top:76%;animation-delay:1s;">攥不住手</span>
+    </div>
+    <div class="scene-label">SCENE 05 / 户外骑行</div>
+    <div class="scene-title">电话进来<br>你只能停下来</div>
+    <div class="scene-pain">风噪、车流、轮胎摩擦地面，你攥着车把腾不出手。电话进来，只能停下来，或者干脆不接。每一次错过，都是一次妥协。</div>
+    <div class="noise-bars">
+      <span style="animation-delay:0s"></span><span style="animation-delay:.08s"></span><span style="animation-delay:.16s"></span><span style="animation-delay:.04s"></span><span style="animation-delay:.12s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.06s"></span><span style="animation-delay:.14s"></span><span style="animation-delay:.02s"></span><span style="animation-delay:.18s"></span><span style="animation-delay:.08s"></span><span style="animation-delay:.12s"></span><span style="animation-delay:.22s"></span><span style="animation-delay:.04s"></span><span style="animation-delay:.16s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.06s"></span><span style="animation-delay:.14s"></span>
+    </div>
+  </div>
+  <div class="scene-panel panel-calm">
+    <div class="scene-no">05</div>
+    <div class="scene-label">轻点耳机 / 结界划定</div>
+    <div class="scene-title">世界被划出<br>一道结界</div>
+    <div class="scene-calm-text">你在风中说话，却像在<strong>安静的走廊里低语</strong>。不必停车，也不必提高音量。你依然在路上，但你的声音，已经抵达了该去的地方。</div>
+    <div class="tap-indicator"><div class="tap-dot"></div>轻点耳机 · 瞬间切换</div>
+    <div class="calm-waves">
+      <span style="animation-delay:0s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.9s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.3s"></span><span style="animation-delay:.6s"></span><span style="animation-delay:.9s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.5s"></span><span style="animation-delay:.8s"></span><span style="animation-delay:.1s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.7s"></span><span style="animation-delay:.3s"></span>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy reveal">
+  <div class="philosophy-label">品牌主张</div>
+  <h2>我们卖的不是<em>芯片</em>，<br>是你在嘈杂世界里<em>被倾听</em>的权利。</h2>
+  <p class="philosophy-sub">每一次轻点，不是关掉世界，而是拿回主导权。<br>噪音不会消失，但它会退到该退的位置——背景。<br>而你的声音，永远是画面的近景。</p>
+</section>
+
+<footer>
+  <div class="footer-logo">Sound<span>Note</span></div>
+  <div class="footer-slogan">一键静界 · <span>听见自己</span></div>
+  <div class="footer-copy">© 2026 SoundNote. All rights reserved. Note S</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const sceneObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const panels = entry.target.querySelectorAll('.scene-panel');
+        panels.forEach((panel, i) => {
+          panel.style.opacity = '0';
+          panel.style.transform = i === 0 ? 'translateX(-40px)' : 'translateX(40px)';
+          panel.style.transition = 'opacity 1s ease, transform 1s ease';
+          setTimeout(() => {
+            panel.style.opacity = '1';
+            panel.style.transform = 'translateX(0)';
+          }, 150 + i * 300);
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.scene').forEach(el => sceneObserver.observe(el));
+</script>
+
+</body>
+</html>
