@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="百度智能云文心快码 Comate 面向 To B 客户的芯片行业 AI Coding 解决方案卖点页，聚焦行业垂直、稳定性高、安全性强、提效显著。">
+  <title>百度智能云 Comate | 芯片行业 AI Coding 解决方案</title>
+  <style>
+    /* Mont for Anker - 英文品牌字体 */
+    @font-face { font-family: 'Mont for Anker'; font-weight: 300; font-display: swap; src: url('https://launch-preview.oss-cn-beijing.aliyuncs.com/skills/launch_skill/ANKER-design-specs/ANKER-Brand-Fonts/Mont-For-Anker/woff2/MontForAnker-Book.woff2') format('woff2'); }
+    @font-face { font-family: 'Mont for Anker'; font-weight: 400; font-display: swap; src: url('https://launch-preview.oss-cn-beijing.aliyuncs.com/skills/launch_skill/ANKER-design-specs/ANKER-Brand-Fonts/Mont-For-Anker/woff2/MontForAnker-Regular.woff2') format('woff2'); }
+    @font-face { font-family: 'Mont for Anker'; font-weight: 600; font-display: swap; src: url('https://launch-preview.oss-cn-beijing.aliyuncs.com/skills/launch_skill/ANKER-design-specs/ANKER-Brand-Fonts/Mont-For-Anker/woff2/MontForAnker-SemiBold.woff2') format('woff2'); }
+    @font-face { font-family: 'Mont for Anker'; font-weight: 700; font-display: swap; src: url('https://launch-preview.oss-cn-beijing.aliyuncs.com/skills/launch_skill/ANKER-design-specs/ANKER-Brand-Fonts/Mont-For-Anker/woff2/MontForAnker-Bold.woff2') format('woff2'); }
+    @font-face { font-family: 'Mont for Anker'; font-weight: 800; font-display: swap; src: url('https://launch-preview.oss-cn-beijing.aliyuncs.com/skills/launch_skill/ANKER-design-specs/ANKER-Brand-Fonts/Mont-For-Anker/woff2/MontForAnker-Heavy.woff2') format('woff2'); }
+    /* HarmonyOS Sans SC - 中文字体 */
+    @font-face { font-family: 'HarmonyOS Sans SC'; font-weight: 300; font-display: swap; src: url('https://launch-preview.oss-cn-beijing.aliyuncs.com/skills/launch_skill/ANKER-design-specs/ANKER-Brand-Fonts/HarmonyOS-Sans-SC/HarmonyOS_Sans_SC_Light.ttf') format('truetype'); }
+    @font-face { font-family: 'HarmonyOS Sans SC'; font-weight: 400; font-display: swap; src: url('https://launch-preview.oss-cn-beijing.aliyuncs.com/skills/launch_skill/ANKER-design-specs/ANKER-Brand-Fonts/HarmonyOS-Sans-SC/HarmonyOS_Sans_SC_Regular.ttf') format('truetype'); }
+    @font-face { font-family: 'HarmonyOS Sans SC'; font-weight: 700; font-display: swap; src: url('https://launch-preview.oss-cn-beijing.aliyuncs.com/skills/launch_skill/ANKER-design-specs/ANKER-Brand-Fonts/HarmonyOS-Sans-SC/HarmonyOS_Sans_SC_Bold.ttf') format('truetype'); }
+
+    :root {
+      --color-brand-primary: #00BEFA;
+      --color-brand-secondary: #01AAFF;
+      --color-brand-tertiary: #0096FF;
+      --color-brand-deep: #0082FF;
+      --color-brand-accent: #F8DBBA;
+      --color-base-white: #FFFFFF;
+      --color-base-black: #000000;
+      --color-text-primary: #1D1D1F;
+      --color-text-secondary: #333333;
+      --color-gray-100: #6B6B6F;
+      --color-gray-300: #878788;
+      --color-gray-500: #B6B6BA;
+      --color-gray-700: #DDDDDD;
+      --color-gray-800: #F7F8F9;
+      --color-bg-light: #F7F8F9;
+      --color-bg-dark: #080A0F;
+      --color-surface-dark: #1C1F28;
+      --font-family-brand: 'Mont for Anker', 'HarmonyOS Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-family-cn: 'HarmonyOS Sans SC', 'Mont for Anker', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-family-mono: 'SF Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+      --font-weight-light: 300;
+      --font-weight-regular: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+      --text-01: 12px;
+      --text-02: 14px;
+      --text-03: 16px;
+      --text-04: 18px;
+      --text-05: clamp(18px, 1.4vw, 20px);
+      --text-06: clamp(18px, 1.7vw, 22px);
+      --text-07: clamp(20px, 2vw, 24px);
+      --text-08: clamp(22px, 2.5vw, 28px);
+      --text-09: clamp(26px, 3.2vw, 38px);
+      --text-10: clamp(42px, 6vw, 86px);
+      --line-height-tight: 1.08;
+      --line-height-snug: 1.35;
+      --line-height-normal: 1.60;
+      --line-height-relaxed: 1.70;
+      --letter-spacing-tight: -0.02em;
+      --letter-spacing-normal: 0;
+      --letter-spacing-wide: 0.02em;
+      --letter-spacing-wider: 0.04em;
+      --max-width: 1584px;
+      --content-width: 1080px;
+      --content-padding-h: clamp(20px, calc(16px + 2vw), 80px);
+      --section-spacing: clamp(56px, calc(24px + 4vw), 112px);
+      --grid-gap: 16px;
+      --spacing-01: 2px;
+      --spacing-02: 4px;
+      --spacing-03: 8px;
+      --spacing-04: 16px;
+      --spacing-05: 24px;
+      --spacing-06: 32px;
+      --spacing-07: 48px;
+      --spacing-08: 64px;
+      --spacing-09: 96px;
+      --spacing-10: 128px;
+      --spacing-11: 160px;
+      --spacing-12: 192px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 18px;
+      --shadow-soft: 0 24px 70px rgba(0, 28, 70, 0.12);
+      --shadow-card: 0 18px 50px rgba(0, 28, 70, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-family-cn);
+      font-size: var(--text-03);
+      line-height: var(--line-height-normal);
+      color: var(--color-text-primary);
+      background: var(--color-base-white);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid rgba(0, 190, 250, 0.45);
+      outline-offset: 4px;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      padding: 0 var(--content-padding-h);
+      background: rgba(255, 255, 255, 0.82);
+      border-bottom: 1px solid rgba(221, 221, 221, 0.65);
+      backdrop-filter: blur(18px);
+      transition: box-shadow 220ms ease, background 220ms ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 10px 30px rgba(0, 28, 70, 0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-03);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: var(--letter-spacing-tight);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: conic-gradient(from 130deg, #00BEFA, #0082FF, #35D69F, #00BEFA);
+      box-shadow: 0 8px 22px rgba(0, 150, 255, 0.30);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.2vw, 36px);
+      color: var(--color-gray-100);
+      font-size: var(--text-02);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: var(--spacing-03) 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      transform: scaleX(0);
+      transform-origin: right;
+      background: var(--color-brand-primary);
+      transition: transform 180ms ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 var(--spacing-05);
+      border-radius: var(--radius-pill);
+      color: var(--color-base-white);
+      background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-deep));
+      box-shadow: 0 12px 28px rgba(0, 150, 255, 0.28);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    main {
+      background:
+        radial-gradient(circle at 14% 8%, rgba(0, 190, 250, 0.16), transparent 28%),
+        radial-gradient(circle at 86% 2%, rgba(248, 219, 186, 0.42), transparent 28%),
+        var(--color-base-white);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      align-items: center;
+      gap: var(--spacing-08);
+      padding: calc(72px + var(--spacing-09)) var(--content-padding-h) var(--spacing-09);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 12% -12% auto auto;
+      width: min(58vw, 760px);
+      height: min(58vw, 760px);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 42% 42%, rgba(255, 255, 255, 0.98) 0 22%, transparent 23%),
+        conic-gradient(from 180deg, rgba(0, 190, 250, 0.10), rgba(0, 130, 255, 0.72), rgba(0, 211, 255, 0.42), rgba(0, 190, 250, 0.10));
+      filter: blur(0.3px);
+      opacity: 0.92;
+      animation: floatRing 9s ease-in-out infinite;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-03);
+      margin: 0 0 var(--spacing-05);
+      padding: var(--spacing-03) var(--spacing-04);
+      border: 1px solid rgba(0, 150, 255, 0.20);
+      border-radius: 999px;
+      color: #006CCB;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 10px 30px rgba(0, 28, 70, 0.06);
+      font-size: var(--text-02);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: var(--letter-spacing-wide);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-brand-primary);
+      box-shadow: 0 0 0 6px rgba(0, 190, 250, 0.16);
+    }
+
+    h1, h2, h3, h4, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: var(--spacing-05);
+      font-family: var(--font-family-brand);
+      font-size: var(--text-10);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-tight);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+
+    .hero h1 span {
+      color: #0078E8;
+    }
+
+    .hero-lede {
+      max-width: 660px;
+      margin-bottom: var(--spacing-06);
+      color: var(--color-text-secondary);
+      font-size: var(--text-05);
+      line-height: var(--line-height-relaxed);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--spacing-04);
+      margin-bottom: var(--spacing-07);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 var(--spacing-06);
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: var(--font-weight-semibold);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: var(--color-base-white);
+      background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-deep));
+      box-shadow: 0 16px 36px rgba(0, 150, 255, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--color-text-primary);
+      border-color: rgba(29, 29, 31, 0.14);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--spacing-04);
+      max-width: 860px;
+    }
+
+    .metric-card {
+      padding: var(--spacing-05);
+      border: 1px solid rgba(221, 221, 221, 0.78);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 14px 42px rgba(0, 28, 70, 0.06);
+      backdrop-filter: blur(16px);
+    }
+
+    .metric-value {
+      display: block;
+      margin-bottom: var(--spacing-02);
+      color: #006CCB;
+      font-family: var(--font-family-brand);
+      font-size: var(--text-08);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+
+    .metric-label {
+      display: block;
+      color: var(--color-gray-100);
+      font-size: var(--text-02);
+      line-height: var(--line-height-snug);
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      min-height: 620px;
+      display: grid;
+      place-items: center;
+    }
+
+    .device-panel {
+      position: relative;
+      width: min(100%, 520px);
+      min-height: 600px;
+      padding: var(--spacing-05);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(237, 247, 255, 0.68)),
+        radial-gradient(circle at top right, rgba(0, 190, 250, 0.16), transparent 42%);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .device-panel::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -120px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(0, 190, 250, 0.18);
+      filter: blur(18px);
+    }
+
+    .terminal {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #08111F;
+      box-shadow: 0 24px 60px rgba(8, 17, 31, 0.28);
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-02);
+      height: 42px;
+      padding: 0 var(--spacing-04);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-brand-primary);
+      opacity: 0.78;
+    }
+
+    .dot:nth-child(2) {
+      background: var(--color-brand-accent);
+    }
+
+    .dot:nth-child(3) {
+      background: #35D69F;
+    }
+
+    .terminal-body {
+      padding: var(--spacing-05);
+      color: #D9F6FF;
+      font-family: var(--font-family-mono);
+      font-size: var(--text-02);
+      line-height: 1.8;
+    }
+
+    .terminal-line {
+      display: block;
+      color: rgba(217, 246, 255, 0.72);
+    }
+
+    .terminal-line strong {
+      color: var(--color-brand-primary);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .agent-stack {
+      position: relative;
+      display: grid;
+      gap: var(--spacing-04);
+      margin-top: var(--spacing-05);
+    }
+
+    .agent-card {
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      align-items: center;
+      gap: var(--spacing-04);
+      padding: var(--spacing-04);
+      border: 1px solid rgba(221, 221, 221, 0.72);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 12px 34px rgba(0, 28, 70, 0.08);
+    }
+
+    .agent-icon {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      color: var(--color-base-white);
+      background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-deep));
+      font-weight: var(--font-weight-bold);
+    }
+
+    .agent-card h3 {
+      margin: 0 0 var(--spacing-01);
+      font-size: var(--text-03);
+      line-height: var(--line-height-snug);
+    }
+
+    .agent-card p {
+      margin: 0;
+      color: var(--color-gray-100);
+      font-size: var(--text-02);
+      line-height: var(--line-height-snug);
+    }
+
+    .agent-status {
+      color: #088F64;
+      font-size: var(--text-01);
+      font-weight: var(--font-weight-semibold);
+      white-space: nowrap;
+    }
+
+    .section {
+      padding: var(--section-spacing) var(--content-padding-h);
+    }
+
+    .section.dark {
+      color: var(--color-base-white);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(0, 190, 250, 0.28), transparent 30%),
+        radial-gradient(circle at 84% 20%, rgba(0, 130, 255, 0.28), transparent 28%),
+        var(--color-bg-dark);
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(280px, 0.48fr);
+      gap: var(--spacing-07);
+      align-items: end;
+      margin-bottom: var(--spacing-08);
+    }
+
+    .section-kicker {
+      margin-bottom: var(--spacing-04);
+      color: #0078E8;
+      font-size: var(--text-02);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: var(--letter-spacing-wider);
+      text-transform: uppercase;
+    }
+
+    .dark .section-kicker {
+      color: var(--color-brand-primary);
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: var(--text-09);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-tight);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+
+    .section-desc {
+      margin: 0;
+      color: var(--color-gray-100);
+      font-size: var(--text-04);
+      line-height: var(--line-height-relaxed);
+    }
+
+    .dark .section-desc {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--grid-gap);
+    }
+
+    .value-card {
+      position: relative;
+      min-height: 420px;
+      padding: var(--spacing-06);
+      border: 1px solid rgba(221, 221, 221, 0.72);
+      border-radius: 28px;
+      background: var(--color-base-white);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 78px rgba(0, 28, 70, 0.14);
+    }
+
+    .value-card::after {
+      content: "";
+      position: absolute;
+      left: var(--spacing-06);
+      right: var(--spacing-06);
+      bottom: -90px;
+      height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 190, 250, 0.18), rgba(0, 130, 255, 0.06));
+      filter: blur(4px);
+    }
+
+    .value-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: var(--spacing-06);
+      border-radius: 16px;
+      color: var(--color-base-white);
+      background: #071A3A;
+      font-family: var(--font-family-brand);
+      font-weight: var(--font-weight-bold);
+    }
+
+    .value-card h3 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: var(--spacing-04);
+      font-size: var(--text-07);
+      line-height: var(--line-height-snug);
+    }
+
+    .value-card p {
+      position: relative;
+      z-index: 1;
+      margin-bottom: var(--spacing-05);
+      color: var(--color-gray-100);
+    }
+
+    .value-list {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: var(--spacing-03);
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      color: var(--color-text-secondary);
+      font-size: var(--text-02);
+    }
+
+    .value-list li {
+      display: flex;
+      gap: var(--spacing-03);
+    }
+
+    .value-list li::before {
+      content: "";
+      flex: 0 0 7px;
+      width: 7px;
+      height: 7px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--color-brand-primary);
+    }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--spacing-05);
+    }
+
+    .showcase-card {
+      position: relative;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--spacing-07);
+      border-radius: 32px;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(237, 247, 255, 0.78));
+      box-shadow: var(--shadow-card);
+    }
+
+    .showcase-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.92) 78%),
+        radial-gradient(circle at 70% 20%, rgba(0, 190, 250, 0.20), transparent 26%);
+    }
+
+    .showcase-visual {
+      position: absolute;
+      inset: var(--spacing-06) var(--spacing-06) auto;
+      height: 300px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-04);
+      align-items: center;
+    }
+
+    .flow-chip {
+      min-height: 108px;
+      display: grid;
+      place-items: center;
+      padding: var(--spacing-04);
+      border: 1px solid rgba(0, 150, 255, 0.16);
+      border-radius: 22px;
+      color: #006CCB;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 14px 34px rgba(0, 28, 70, 0.08);
+      font-weight: var(--font-weight-bold);
+      text-align: center;
+    }
+
+    .showcase-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+    }
+
+    .showcase-card h3 {
+      margin-bottom: var(--spacing-04);
+      font-size: var(--text-08);
+      line-height: var(--line-height-tight);
+    }
+
+    .showcase-card p {
+      margin-bottom: var(--spacing-05);
+      color: var(--color-gray-100);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-03);
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: var(--spacing-02) var(--spacing-04);
+      border: 1px solid rgba(0, 150, 255, 0.18);
+      border-radius: 999px;
+      color: #006CCB;
+      background: rgba(255, 255, 255, 0.66);
+      font-size: var(--text-02);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--grid-gap);
+    }
+
+    .scenario-card {
+      min-height: 330px;
+      padding: var(--spacing-06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+    }
+
+    .scenario-card h3 {
+      margin-bottom: var(--spacing-04);
+      color: var(--color-base-white);
+      font-size: var(--text-07);
+    }
+
+    .scenario-card p {
+      margin-bottom: var(--spacing-05);
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .scenario-list {
+      display: grid;
+      gap: var(--spacing-03);
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: var(--text-02);
+    }
+
+    .scenario-list li {
+      padding-left: var(--spacing-04);
+      border-left: 2px solid var(--color-brand-primary);
+    }
+
+    .proof-band {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: var(--spacing-07);
+      align-items: center;
+      padding: var(--spacing-08);
+      border-radius: 36px;
+      background:
+        linear-gradient(135deg, rgba(0, 16, 48, 0.96), rgba(10, 29, 149, 0.92) 58%, rgba(0, 211, 255, 0.62)),
+        var(--color-bg-dark);
+      color: var(--color-base-white);
+      overflow: hidden;
+    }
+
+    .proof-band h2 {
+      margin-bottom: var(--spacing-05);
+    }
+
+    .proof-band p {
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: var(--text-04);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--spacing-04);
+    }
+
+    .proof-card {
+      min-height: 168px;
+      padding: var(--spacing-05);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(14px);
+    }
+
+    .proof-value {
+      display: block;
+      margin-bottom: var(--spacing-03);
+      color: var(--color-brand-primary);
+      font-family: var(--font-family-brand);
+      font-size: var(--text-09);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+
+    .proof-card span:last-child {
+      color: rgba(255, 255, 255, 0.80);
+    }
+
+    .security-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: var(--spacing-07);
+      align-items: start;
+    }
+
+    .security-panel {
+      position: sticky;
+      top: 96px;
+      padding: var(--spacing-07);
+      border-radius: 32px;
+      background: linear-gradient(145deg, #FFFFFF, #EDF7FF);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .security-panel h2 {
+      margin-bottom: var(--spacing-05);
+    }
+
+    .security-panel p {
+      color: var(--color-gray-100);
+      font-size: var(--text-04);
+    }
+
+    .deployment-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-03);
+      margin-top: var(--spacing-06);
+    }
+
+    .deployment-tab {
+      padding: var(--spacing-03) var(--spacing-04);
+      border-radius: 999px;
+      color: #006CCB;
+      background: rgba(0, 150, 255, 0.10);
+      font-size: var(--text-02);
+      font-weight: var(--font-weight-semibold);
+      text-align: center;
+    }
+
+    .security-cards {
+      display: grid;
+      gap: var(--spacing-04);
+    }
+
+    .security-card {
+      padding: var(--spacing-06);
+      border: 1px solid rgba(221, 221, 221, 0.72);
+      border-radius: 26px;
+      background: var(--color-base-white);
+      box-shadow: 0 14px 44px rgba(0, 28, 70, 0.08);
+    }
+
+    .security-card h3 {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-03);
+      margin-bottom: var(--spacing-03);
+      font-size: var(--text-06);
+    }
+
+    .security-card h3::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-brand-primary);
+      box-shadow: 0 0 0 6px rgba(0, 190, 250, 0.12);
+    }
+
+    .security-card p {
+      margin-bottom: 0;
+      color: var(--color-gray-100);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--grid-gap);
+    }
+
+    .timeline-card {
+      position: relative;
+      padding: var(--spacing-06);
+      border-radius: 28px;
+      background: var(--color-base-white);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: attr(data-step);
+      position: absolute;
+      top: var(--spacing-05);
+      right: var(--spacing-05);
+      color: rgba(0, 150, 255, 0.12);
+      font-family: var(--font-family-brand);
+      font-size: clamp(64px, 8vw, 116px);
+      font-weight: var(--font-weight-bold);
+      line-height: 1;
+    }
+
+    .timeline-tag {
+      display: inline-flex;
+      margin-bottom: var(--spacing-05);
+      padding: var(--spacing-02) var(--spacing-04);
+      border-radius: 999px;
+      color: #006CCB;
+      background: rgba(0, 190, 250, 0.12);
+      font-size: var(--text-02);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .timeline-card h3 {
+      position: relative;
+      margin-bottom: var(--spacing-04);
+      font-size: var(--text-07);
+    }
+
+    .timeline-card ul {
+      position: relative;
+      display: grid;
+      gap: var(--spacing-03);
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      color: var(--color-gray-100);
+    }
+
+    .customer-strip {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: var(--spacing-07);
+      align-items: center;
+      padding: var(--spacing-08) 0 0;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--spacing-04);
+    }
+
+    .logo-card {
+      min-height: 112px;
+      display: grid;
+      place-items: center;
+      padding: var(--spacing-05);
+      border: 1px solid rgba(221, 221, 221, 0.72);
+      border-radius: 22px;
+      background: var(--color-base-white);
+      box-shadow: 0 14px 38px rgba(0, 28, 70, 0.07);
+      color: var(--color-text-secondary);
+      font-size: var(--text-06);
+      font-weight: var(--font-weight-bold);
+      text-align: center;
+    }
+
+    .cta-section {
+      padding: var(--section-spacing) var(--content-padding-h);
+      background: var(--color-gray-800);
+    }
+
+    .cta-card {
+      max-width: var(--max-width);
+      min-height: 440px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr);
+      gap: var(--spacing-07);
+      align-items: center;
+      margin: 0 auto;
+      padding: var(--spacing-08);
+      border-radius: 40px;
+      color: var(--color-base-white);
+      background:
+        radial-gradient(circle at 82% 10%, rgba(0, 211, 255, 0.46), transparent 32%),
+        linear-gradient(135deg, #001030, #0A1D95 58%, #0082FF);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .cta-card h2 {
+      margin-bottom: var(--spacing-05);
+    }
+
+    .cta-card p {
+      max-width: 720px;
+      margin-bottom: var(--spacing-06);
+      color: rgba(255, 255, 255, 0.75);
+      font-size: var(--text-04);
+    }
+
+    .demo-box {
+      padding: var(--spacing-06);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(18px);
+    }
+
+    .demo-box code {
+      display: block;
+      color: #D9F6FF;
+      font-family: var(--font-family-mono);
+      white-space: normal;
+    }
+
+    .site-footer {
+      padding: var(--spacing-07) var(--content-padding-h);
+      color: var(--color-gray-100);
+      background: var(--color-base-white);
+      border-top: 1px solid var(--color-gray-700);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      display: flex;
+      justify-content: space-between;
+      gap: var(--spacing-06);
+      margin: 0 auto;
+      font-size: var(--text-02);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 620ms ease, transform 620ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floatRing {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+      50% { transform: translate3d(-18px, 18px, 0) rotate(8deg); }
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .section-heading,
+      .proof-band,
+      .security-layout,
+      .customer-strip,
+      .cta-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: calc(72px + var(--spacing-07));
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .device-panel {
+        min-height: auto;
+      }
+
+      .value-grid,
+      .scenario-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .security-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        min-height: 64px;
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      .hero {
+        gap: var(--spacing-07);
+        padding-top: calc(64px + var(--spacing-07));
+      }
+
+      .hero::before {
+        width: 92vw;
+        height: 92vw;
+        inset: 12% -38% auto auto;
+      }
+
+      .hero-metrics,
+      .value-grid,
+      .scenario-grid,
+      .proof-grid,
+      .timeline,
+      .logo-grid,
+      .deployment-tabs {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .showcase-card,
+      .proof-band,
+      .security-panel,
+      .cta-card {
+        padding: var(--spacing-06);
+        border-radius: 28px;
+      }
+
+      .showcase-card {
+        min-height: 640px;
+      }
+
+      .showcase-visual {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .flow-chip {
+        min-height: 72px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" aria-label="页面导航">
+    <a class="brand" href="#top" aria-label="返回首页">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>百度智能云 Comate</span>
+    </a>
+    <nav class="nav-links" aria-label="主要导航">
+      <a href="#values">核心卖点</a>
+      <a href="#scenarios">行业场景</a>
+      <a href="#security">安全部署</a>
+      <a href="#proof">客户验证</a>
+    </nav>
+    <a class="header-cta" href="#cta">预约方案演示</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">芯片行业 AI Coding 解决方案</p>
+        <h1 id="hero-title">让芯片研发<br><span>从人海战术</span>进入智能闭环</h1>
+        <p class="hero-lede">百度智能云文心快码 Comate 面向半导体研发场景，将大模型能力、私域知识、研发规范、Agent 工作流与安全部署整合为企业级 AI Coding 平台，帮助 To B 客户在可控、安全、可度量的前提下提升研发效率。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#values">查看核心卖点</a>
+          <a class="btn btn-secondary" href="#scenarios">浏览芯片场景</a>
+        </div>
+        <div class="hero-metrics" aria-label="关键效果数据">
+          <article class="metric-card">
+            <span class="metric-value">46%</span>
+            <span class="metric-label">百度每新增 100 行代码中 AI 生成占比</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-value">63.47%</span>
+            <span class="metric-label">昆仑芯落地采纳率</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-value">45.58%</span>
+            <span class="metric-label">晶合集成 SaaS 代码生成占比</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-value">40%+</span>
+            <span class="metric-label">新芯集成私有化月采纳率</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="device-panel">
+          <div class="terminal">
+            <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="terminal-body">
+              <span class="terminal-line">&gt; create plan for RTL verification flow</span>
+              <span class="terminal-line"><strong>Comate Agent</strong> analyzing DUT context...</span>
+              <span class="terminal-line">01 generate RTL skeleton</span>
+              <span class="terminal-line">02 build SV Testbench + SVA</span>
+              <span class="terminal-line">03 run simulation and parse logs</span>
+              <span class="terminal-line">04 locate error and propose fix</span>
+              <span class="terminal-line"><strong>status:</strong> closed-loop ready</span>
+            </div>
+          </div>
+          <div class="agent-stack">
+            <article class="agent-card">
+              <span class="agent-icon">R</span>
+              <div><h3>RTL / HDL Agent</h3><p>上下文补全、模块框架生成、代码文档化</p></div>
+              <span class="agent-status">Ready</span>
+            </article>
+            <article class="agent-card">
+              <span class="agent-icon">V</span>
+              <div><h3>Verification Agent</h3><p>Testbench、UVM、SVA 断言自动构建</p></div>
+              <span class="agent-status">Ready</span>
+            </article>
+            <article class="agent-card">
+              <span class="agent-icon">S</span>
+              <div><h3>Security Agent</h3><p>输入输出扫描、敏感信息过滤、审计追溯</p></div>
+              <span class="agent-status">Ready</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="values" class="section" aria-labelledby="values-title">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">Four Selling Points</p>
+            <h2 id="values-title">面向 To B 决策的四个确定性价值</h2>
+          </div>
+          <p class="section-desc">不是泛用型 AI 编码插件，而是围绕芯片研发流程、企业安全边界与组织效能管理构建的工程平台。</p>
+        </div>
+        <div class="value-grid">
+          <article class="value-card reveal">
+            <span class="value-number">01</span>
+            <h3>行业垂直</h3>
+            <p>覆盖 HDL / RTL、嵌入式固件、Linux 驱动、SDK、EDA 脚本、验证与签核等芯片研发关键环节。</p>
+            <ul class="value-list">
+              <li>支持 SystemVerilog、Verilog、VHDL、C/C++、TCL、Perl、Python 等语言</li>
+              <li>内置芯片场景 Skill，从需求定义到代码实现、验证、签核</li>
+              <li>结合企业芯片手册、规范文档和历史代码生成专属代码</li>
+            </ul>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-number">02</span>
+            <h3>稳定性高</h3>
+            <p>通过 Spec、Plan、Rules、Skills、SubAgent 与测试闭环约束大模型行为，降低随机性，提升可复用性。</p>
+            <ul class="value-list">
+              <li>先规划再编码，需求、范围、技术方案可被检查</li>
+              <li>SubAgent 隔离上下文，并行执行复杂研发任务</li>
+              <li>Skill 生命周期管理，支持版本、调试、质量评估和安全扫描</li>
+            </ul>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-number">03</span>
+            <h3>安全性强</h3>
+            <p>提供 SaaS、VPC、混合云、私有云多种部署形态，并具备敏感信息过滤、传输加密、审计与权限控制。</p>
+            <ul class="value-list">
+              <li>SaaS 模式不存储用户代码，不用于模型训练</li>
+              <li>向量不可逆，代码向量只能由客户端本地解密</li>
+              <li>私有化部署可实现数据不出域、请求不出域</li>
+            </ul>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-number">04</span>
+            <h3>提效显著</h3>
+            <p>从代码补全到 Agent 端到端任务委托，覆盖编码、调试、测试、文档、评审与度量，形成组织级提效闭环。</p>
+            <ul class="value-list">
+              <li>HDL 补全采纳率预期 50%，验证代码人力节省 70%</li>
+              <li>驱动开发周期预期缩短 40%，脚本编写时间预期缩短 50%</li>
+              <li>管理后台实时跟踪采纳率、AI 代码生成占比和团队使用情况</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="workflow-title">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">Engineering Workflow</p>
+            <h2 id="workflow-title">把 AI 能力落到芯片研发闭环</h2>
+          </div>
+          <p class="section-desc">Comate 的价值不止于“补全几行代码”，而是让生成、仿真、报错、定位、修复形成可执行流程。</p>
+        </div>
+        <div class="showcase">
+          <article class="showcase-card reveal">
+            <div class="showcase-visual">
+              <span class="flow-chip">Spec / PRD<br>需求解析</span>
+              <span class="flow-chip">RTL<br>模板生成</span>
+              <span class="flow-chip">Lint++<br>规范检查</span>
+            </div>
+            <div class="showcase-content">
+              <h3>从需求定义到代码实现</h3>
+              <p>通过芯片需求解析、模块接口生成、RTL 设计与规范检查，将架构师经验沉淀为可调用 Skill，减少 Spec 理解偏差和接口设计冲突。</p>
+              <div class="pill-row"><span class="pill">Spec Analysis</span><span class="pill">Interface</span><span class="pill">RTL</span><span class="pill">Rules</span></div>
+            </div>
+          </article>
+          <article class="showcase-card reveal">
+            <div class="showcase-visual">
+              <span class="flow-chip">Testbench<br>自动生成</span>
+              <span class="flow-chip">STA 报告<br>根因分析</span>
+              <span class="flow-chip">Signoff<br>风险总结</span>
+            </div>
+            <div class="showcase-content">
+              <h3>从深度验证到签核风险收敛</h3>
+              <p>自动生成 SV Testbench、SVA 断言、仿真失败分析、综合约束、STA 报告解读和 Signoff 风险总结，压缩专家经验的重复消耗。</p>
+              <div class="pill-row"><span class="pill">UVM</span><span class="pill">SVA</span><span class="pill">STA</span><span class="pill">DFT</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="scenarios" class="section dark" aria-labelledby="scenarios-title">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">Vertical Scenarios</p>
+            <h2 id="scenarios-title">芯片行业场景，不需要从零训练用户</h2>
+          </div>
+          <p class="section-desc">围绕芯片企业真实研发痛点组织能力，让 AI 能直接进入工程师已有工具链和工作流。</p>
+        </div>
+        <div class="scenario-grid">
+          <article class="scenario-card reveal">
+            <h3>HDL / RTL 智能辅助</h3>
+            <p>从上下文补全到验证自动化，降低 HDL 代码量增长与新员工理解成本。</p>
+            <ul class="scenario-list"><li>Verilog / SV / VHDL 补全</li><li>SV Testbench 自动生成</li><li>UVM Driver / Monitor / Scoreboard 构建</li><li>复杂 IP 文档化</li></ul>
+          </article>
+          <article class="scenario-card reveal">
+            <h3>嵌入式固件与 RTOS</h3>
+            <p>加速从需求到可运行代码，覆盖裸机 C/C++、RTOS、Bootloader 与 HAL。</p>
+            <ul class="scenario-list"><li>外设寄存器操作补全</li><li>中断与 DMA 代码生成</li><li>FreeRTOS / RT-Thread 任务模板</li><li>跨芯片移植辅助</li></ul>
+          </article>
+          <article class="scenario-card reveal">
+            <h3>Linux 驱动与 SDK</h3>
+            <p>降低驱动开发门槛，提升 API 文档、单测、规范检查和发布质量。</p>
+            <ul class="scenario-list"><li>platform / i2c / spi / usb 骨架</li><li>DTS 节点配置生成</li><li>MISRA-C / 编码规范检查</li><li>SDK 安全与质量扫描</li></ul>
+          </article>
+          <article class="scenario-card reveal">
+            <h3>EDA 流程脚本智能化</h3>
+            <p>支持综合、仿真、STA、后端与签核脚本，让流程效率从小时级压缩到分钟级。</p>
+            <ul class="scenario-list"><li>TCL / SDC 约束生成</li><li>VCS / ModelSim 脚本</li><li>STA 报告违例根因分析</li><li>IR Drop / EM 分析脚本</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="security" class="section" aria-labelledby="security-title">
+      <div class="section-inner security-layout">
+        <div class="security-panel reveal">
+          <p class="section-kicker">Enterprise Security</p>
+          <h2 id="security-title">安全不是附加项，而是部署架构的一部分</h2>
+          <p>Comate 为不同安全阶段的研发团队提供灵活路径：免费验证、SaaS 快速扩量、混合云核心研发、私有化最高安全。企业可以先验证价值，再按数据敏感等级逐步规模化。</p>
+          <div class="deployment-tabs" aria-label="部署模式">
+            <span class="deployment-tab">SaaS</span>
+            <span class="deployment-tab">VPC</span>
+            <span class="deployment-tab">混合云</span>
+            <span class="deployment-tab">私有云</span>
+          </div>
+        </div>
+        <div class="security-cards">
+          <article class="security-card reveal">
+            <h3>代码不存储，不用于训练</h3>
+            <p>SaaS 模式下 Comate 不存储用户任何代码，代码仅向量化后存储，向量不可逆，原始代码不离开开发者本地 IDE。</p>
+          </article>
+          <article class="security-card reveal">
+            <h3>全链路加密与敏感信息过滤</h3>
+            <p>传输链路 HTTPS 加密；支持本地规则检查，过滤密码、手机号等敏感信息；可对接企业安全扫描 API，对输入和输出进行扫描与告警。</p>
+          </article>
+          <article class="security-card reveal">
+            <h3>细粒度权限与全链路审计</h3>
+            <p>Agent Hub 与 Skill 中心提供权限控制、多端身份认证、审计日志、质量评估与安全扫描机制，防范企业 AI 资产与高危权限风险。</p>
+          </article>
+          <article class="security-card reveal">
+            <h3>私有化最高安全等级</h3>
+            <p>私有化阶段模型与服务全部部署在客户侧，数据不出域、请求不出域，实现物理级隔离，适合核心硬件研发团队规模化使用。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="rollout-title">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">Enterprise Rollout</p>
+            <h2 id="rollout-title">从免费验证到全面安全规模化部署</h2>
+          </div>
+          <p class="section-desc">To B 客户不需要一次性押注。Comate 支持以低成本试点验证效率，再通过专家课程、知识库与私有化能力完成组织级落地。</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-card reveal" data-step="01">
+            <span class="timeline-tag">2 周 - 1 个月</span>
+            <h3>免费测试期</h3>
+            <ul><li>百度免费提供 SaaS 账号</li><li>选取 1-2 个研发小组试用</li><li>开启代码补全与智能体问答</li><li>建立采纳率等效率基线</li></ul>
+          </article>
+          <article class="timeline-card reveal" data-step="02">
+            <span class="timeline-tag">1 个月后</span>
+            <h3>SaaS 付费使用 + 专家课程</h3>
+            <ul><li>软件设计、工具开发、脚本团队快速扩量</li><li>接入企业知识库和历史 Bug 库</li><li>定制芯片专属 Skills</li><li>沉淀 AI 使用规范</li></ul>
+          </article>
+          <article class="timeline-card reveal" data-step="03">
+            <span class="timeline-tag">3 个月后</span>
+            <h3>私有化 / 混合云</h3>
+            <ul><li>RTL / 验证 / 后端核心团队覆盖</li><li>私有化实现数据与请求不出域</li><li>接入 CI/CD 流水线</li><li>打造企业级 AI 研发平台</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="section" aria-labelledby="proof-title">
+      <div class="section-inner">
+        <div class="proof-band reveal">
+          <div>
+            <p class="section-kicker">Proof of Value</p>
+            <h2 id="proof-title">已有芯片半导体客户验证</h2>
+            <p>Comate 已在昆仑芯、晶合集成、新芯集成、光本位科技等芯片半导体客户场景中落地，并覆盖金融证券、消费娱乐、机械制造、电子商务等千行百业。</p>
+          </div>
+          <div class="proof-grid">
+            <article class="proof-card"><span class="proof-value">32%</span><span>昆仑芯代码生成占比，采纳率 63.47%</span></article>
+            <article class="proof-card"><span class="proof-value">45.58%</span><span>晶合集成 SaaS 代码生成占比，采纳率 58.78%</span></article>
+            <article class="proof-card"><span class="proof-value">90.1%</span><span>昆仑芯非续写类占比，说明 Agent 与问答类能力被深度使用</span></article>
+            <article class="proof-card"><span class="proof-value">95%</span><span>SDK 文档覆盖率目标，驱动开发周期预期缩短 40%</span></article>
+          </div>
+        </div>
+        <div class="customer-strip">
+          <div class="reveal">
+            <p class="section-kicker">Trusted by Industry</p>
+            <h2>国内领先落地规模与行业认可</h2>
+            <p class="section-desc">在信通院、软件协会、沙利文等权威机构评测中表现领先，并在 VSCode、JetBrains 等插件市场保持高评分。</p>
+          </div>
+          <div class="logo-grid reveal" aria-label="合作客户">
+            <div class="logo-card">昆仑芯</div>
+            <div class="logo-card">晶合集成</div>
+            <div class="logo-card">新芯集成</div>
+            <div class="logo-card">光本位科技</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-card reveal">
+        <div>
+          <p class="section-kicker">Live Demo</p>
+          <h2 id="cta-title">拒绝纸上谈兵，用真实研发痛点现场验证</h2>
+          <p>选择一个真实芯片研发痛点或代码命题，现场演示 Comate 如何完成需求澄清、计划生成、代码实现、仿真分析、问题修复和安全合规检查。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:15921718483">联系商务顾问</a>
+            <a class="btn btn-secondary" href="#values">回看卖点</a>
+          </div>
+        </div>
+        <div class="demo-box" aria-label="演示命题示例">
+          <code>&gt; Please Input Your Challenge_</code>
+          <code>例如：基于 AXI-lite 寄存器模块生成 RTL、Testbench 与 SVA，并完成仿真失败分析。</code>
+          <code>商务联系人：李鹭徽 15921718483</code>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>百度智能云文心快码 Comate | 芯片行业 AI Coding 解决方案</span>
+      <span>页面内容根据用户提供参考资料整理，用于 To B 卖点展示。</span>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector('.site-header');
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const updateHeader = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 24);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach((item) => observer.observe(item));
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+  </script>
+</body>
+</html>
